@@ -63,11 +63,11 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
           <div className="ml-4 flex space-x-3">
-            <Button className="bg-kcmc-sky hover:bg-kcmc-rain text-white">
-              Book Now
+            <Button className="bg-kcmc-sky hover:bg-kcmc-rain text-white" asChild>
+              <Link to="/book">Book Now</Link>
             </Button>
-            <Button variant="outline" className="border-kcmc-sky text-kcmc-sky hover:bg-kcmc-sky/10">
-              Emergency
+            <Button variant="outline" className="border-kcmc-sky text-kcmc-sky hover:bg-kcmc-sky/10" asChild>
+              <Link to="/emergency">Emergency</Link>
             </Button>
           </div>
         </nav>
@@ -98,11 +98,11 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
               <div className="pt-3 grid grid-cols-2 gap-3">
-                <Button className="bg-kcmc-sky hover:bg-kcmc-rain text-white">
-                  Book Now
+                <Button className="bg-kcmc-sky hover:bg-kcmc-rain text-white" asChild>
+                  <Link to="/book" onClick={() => setIsOpen(false)}>Book Now</Link>
                 </Button>
-                <Button variant="outline" className="border-kcmc-sky text-kcmc-sky hover:bg-kcmc-sky/10">
-                  Emergency
+                <Button variant="outline" className="border-kcmc-sky text-kcmc-sky hover:bg-kcmc-sky/10" asChild>
+                  <Link to="/emergency" onClick={() => setIsOpen(false)}>Emergency</Link>
                 </Button>
               </div>
             </nav>
