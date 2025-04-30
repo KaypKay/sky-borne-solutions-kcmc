@@ -1,17 +1,30 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactBar from "@/components/ContactBar";
 
 const ServicesPage = () => {
+  const [searchParams] = useSearchParams();
+  const tabFromUrl = searchParams.get("tab");
+  
   const [activeTab, setActiveTab] = useState("cloud-seeding");
+  
+  // Set active tab based on URL parameter if present
+  useEffect(() => {
+    if (tabFromUrl) {
+      // Map URL param to tab ID
+      const validTabs = ["cloud-seeding", "cloud-physics-research", "aviation-charter", "air-ambulance"];
+      const mappedTab = validTabs.find(tab => tab === tabFromUrl) || "cloud-seeding";
+      setActiveTab(mappedTab);
+    }
+  }, [tabFromUrl]);
 
   const tabs = [
     { id: "cloud-seeding", label: "Cloud Seeding" },
-    { id: "research", label: "Cloud Physics Research" },
-    { id: "charter", label: "Aviation Charter" },
-    { id: "ambulance", label: "Air Ambulance" },
+    { id: "cloud-physics-research", label: "Cloud Physics Research" },
+    { id: "aviation-charter", label: "Aviation Charter" },
+    { id: "air-ambulance", label: "Air Ambulance" },
   ];
 
   const tabContent = {
@@ -27,7 +40,7 @@ const ServicesPage = () => {
       ],
       image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=1200&auto=format&fit=crop",
     },
-    "research": {
+    "cloud-physics-research": {
       title: "Cloud Physics Research",
       description: "Advancing the science of atmospheric modification through detailed research and collaboration with leading institutions.",
       features: [
@@ -39,7 +52,7 @@ const ServicesPage = () => {
       ],
       image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1200&auto=format&fit=crop",
     },
-    "charter": {
+    "aviation-charter": {
       title: "Aviation Charter",
       description: "Premium aircraft charter services for business travel, leisure, and specialized transport needs.",
       features: [
@@ -51,7 +64,7 @@ const ServicesPage = () => {
       ],
       image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=1200&auto=format&fit=crop",
     },
-    "ambulance": {
+    "air-ambulance": {
       title: "Air Ambulance",
       description: "Rapid medical evacuation services with state-of-the-art equipment and trained medical professionals.",
       features: [

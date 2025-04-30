@@ -63,6 +63,10 @@ const BookingStepThree: React.FC<BookingStepThreeProps> = ({
               <p className="text-sm text-gray-500">Contact Email</p>
               <p className="font-medium">johndoe@example.com</p>
             </div>
+            <div>
+              <p className="text-sm text-gray-500">Phone Number</p>
+              <p className="font-medium">+1 (555) 123-4567</p>
+            </div>
           </div>
         </div>
       </div>

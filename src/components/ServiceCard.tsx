@@ -20,6 +20,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   primary = false,
 }) => {
+  // Extract service type from title to create proper link
+  const serviceType = title.toLowerCase().replace(/\s+/g, "-");
+  const serviceLink = `/services?tab=${serviceType}`;
+  
   return (
     <div 
       className={`service-card group ${
@@ -38,7 +42,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <p className="text-gray-700 mb-4">{description}</p>
         </div>
         <Link 
-          to={link} 
+          to={serviceLink} 
           className="inline-flex items-center text-kcmc-sky hover:text-kcmc-rain transition-colors font-medium"
         >
           Learn more <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1"/>
