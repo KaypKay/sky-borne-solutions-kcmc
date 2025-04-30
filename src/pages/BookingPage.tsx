@@ -12,19 +12,11 @@ import BookingStepTwo from "@/components/booking/BookingStepTwo";
 import BookingStepThree from "@/components/booking/BookingStepThree";
 import BookingStepFour from "@/components/booking/BookingStepFour";
 import BookingAssistance from "@/components/booking/BookingAssistance";
-import BookingAuth from "@/components/booking/BookingAuth";
-
-interface UserData {
-  email: string;
-  name?: string;
-  isGuest: boolean;
-}
 
 const BookingPage = () => {
   const [date, setDate] = useState<Date | undefined>(undefined);
-  const [step, setStep] = useState(0); // Start with authentication step (0)
+  const [step, setStep] = useState(1);
   const [bookingType, setBookingType] = useState("charter");
-  const [userData, setUserData] = useState<UserData | null>(null);
   
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
@@ -38,14 +30,8 @@ const BookingPage = () => {
     setStep(4);
   };
 
-  const handleAuthSuccess = (data: UserData) => {
-    setUserData(data);
-    nextStep(); // Move to flight details
-  };
-
   const getStepTitle = () => {
     switch (step) {
-      case 0: return "Authentication";
       case 1: return "Flight Details";
       case 2: return "Passenger Information";
       case 3: return "Review & Payment";
@@ -56,7 +42,6 @@ const BookingPage = () => {
 
   const getStepDescription = () => {
     switch (step) {
-      case 0: return "Sign in or continue as a guest to request a quote.";
       case 1: return "Provide details about your desired flight.";
       case 2: return "Tell us about the passengers traveling.";
       case 3: return "Review your booking details and proceed to payment.";
@@ -94,10 +79,6 @@ const BookingPage = () => {
           />
 
           <form onSubmit={handleSubmit}>
-            {step === 0 && (
-              <BookingAuth onAuthSuccess={handleAuthSuccess} />
-            )}
-            
             {step === 1 && (
               <BookingStepOne 
                 bookingType={bookingType} 
@@ -110,22 +91,20 @@ const BookingPage = () => {
             {step === 2 && (
               <BookingStepTwo 
                 prevStep={prevStep} 
-                nextStep={nextStep}
-                userData={userData} 
+                nextStep={nextStep} 
               />
             )}
             
             {step === 3 && (
               <BookingStepThree 
                 bookingType={bookingType} 
-                date={date}
-                userData={userData}
+                date={date} 
                 prevStep={prevStep} 
                 onSubmit={handleSubmit} 
               />
             )}
             
-            {step === 4 && <BookingStepFour userData={userData} />}
+            {step === 4 && <BookingStepFour />}
           </form>
           
           {step < 4 && <BookingAssistance />}
