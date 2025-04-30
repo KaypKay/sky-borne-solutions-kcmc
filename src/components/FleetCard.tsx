@@ -1,7 +1,8 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import { FileText, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface FleetCardProps {
   aircraft: {
@@ -66,12 +67,16 @@ const FleetCard: React.FC<FleetCardProps> = ({ aircraft }) => {
           <div>
             <p className="text-gray-700 mb-4">{aircraft.description}</p>
             <div className="flex flex-wrap gap-3">
-              <Button className="button-primary">
-                Book This Aircraft
+              <Button className="button-primary" asChild>
+                <Link to="/book">Book This Aircraft</Link>
               </Button>
               <Button className="button-secondary">
                 <FileText className="mr-2" size={16} />
                 Download Spec Sheet
+              </Button>
+              <Button className="button-secondary" variant="outline">
+                <Phone className="mr-2" size={16} />
+                Contact Us
               </Button>
             </div>
           </div>

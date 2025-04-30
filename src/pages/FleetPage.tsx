@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactBar from "@/components/ContactBar";
 import FleetCard from "@/components/FleetCard";
+import { Phone } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 // Update the fleet data structure to match the FleetCard props
 const fleetData = [
@@ -69,6 +71,21 @@ const FleetPage = () => {
               />
             ))}
           </div>
+          
+          <Card className="mt-12 bg-gray-50">
+            <CardContent className="pt-6">
+              <h2 className="text-2xl font-semibold mb-4">Need a Custom Solution?</h2>
+              <p className="mb-4">
+                Our aircraft can be configured for various specialized missions. Contact our team to discuss your specific requirements.
+              </p>
+              <div className="flex items-center">
+                <Phone className="h-5 w-5 text-kcmc-sky mr-2" />
+                <a href="tel:+918028562224" className="text-kcmc-sky hover:underline font-medium">
+                  +91 80 28562224
+                </a>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </main>
       <Footer />
