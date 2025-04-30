@@ -6,6 +6,7 @@ import { format } from "date-fns";
 interface BookingStepThreeProps {
   bookingType: string;
   date?: Date;
+  userData: { email: string; name?: string; isGuest: boolean } | null;
   prevStep: () => void;
   onSubmit: (e: React.FormEvent) => void;
 }
@@ -13,6 +14,7 @@ interface BookingStepThreeProps {
 const BookingStepThree: React.FC<BookingStepThreeProps> = ({
   bookingType,
   date,
+  userData,
   prevStep,
   onSubmit
 }) => {
@@ -57,12 +59,21 @@ const BookingStepThree: React.FC<BookingStepThreeProps> = ({
             )}
             <div>
               <p className="text-sm text-gray-500">Contact Name</p>
-              <p className="font-medium">John Doe (Example)</p>
+              <p className="font-medium">{userData?.name || "Not provided"}</p>
             </div>
             <div>
               <p className="text-sm text-gray-500">Contact Email</p>
-              <p className="font-medium">johndoe@example.com</p>
+              <p className="font-medium">{userData?.email}</p>
             </div>
+            
+            {userData?.isGuest && (
+              <div className="md:col-span-2">
+                <p className="text-sm bg-blue-50 p-2 rounded border border-blue-100">
+                  <span className="font-medium">Note:</span> You're booking as a guest. 
+                  Your quote will be sent to your email address.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
