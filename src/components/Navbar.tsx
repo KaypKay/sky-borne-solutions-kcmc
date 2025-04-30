@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/9b5b31e9-86f8-4576-a9b6-8dc1e76dc287.png" 
+            src="/lovable-uploads/de028333-03ee-4434-849c-212925ffab9a.png" 
             alt="Kyathi Climate Logo" 
             className="h-12 md:h-16" 
           />
