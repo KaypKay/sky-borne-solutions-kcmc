@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
             <h3 className="text-xl font-semibold mb-2">Cloud Seeding</h3>
             <p className="text-gray-700 mb-4">Advanced techniques to enhance rainfall and combat drought conditions.</p>
             <Link 
-              to="/services/cloud-seeding"
+              to="/services?tab=cloud-seeding"
               className="text-kcmc-sky hover:text-kcmc-rain transition-colors font-medium"
             >
               Learn more →
@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
             <h3 className="text-xl font-semibold mb-2">Charter Flights</h3>
             <p className="text-gray-700 mb-4">Private aviation solutions for business and leisure travel with 24/7 operations.</p>
             <Link 
-              to="/services/charter"
+              to="/services?tab=aviation-charter"
               className="text-kcmc-sky hover:text-kcmc-rain transition-colors font-medium"
             >
               Learn more →
@@ -72,12 +72,12 @@ const HeroSection: React.FC = () => {
           {/* Air Ambulance Panel */}
           <div className="bg-white rounded-xl p-6 shadow-lg transition-all hover:-translate-y-1 duration-300">
             <div className="bg-kcmc-sky/10 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-              <Ambulance className="text-kcmc-sky" size={32} />
+              <Ambulance className="text-kcmc-sky" size={36} />
             </div>
             <h3 className="text-xl font-semibold mb-2">Air Ambulance</h3>
             <p className="text-gray-700 mb-4">Rapid medical evacuations with bedside-to-bedside service and complete medical support.</p>
             <Link 
-              to="/services/ambulance"
+              to="/services?tab=air-ambulance"
               className="text-kcmc-sky hover:text-kcmc-rain transition-colors font-medium"
             >
               Learn more →

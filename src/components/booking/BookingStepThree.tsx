@@ -72,48 +72,17 @@ const BookingStepThree: React.FC<BookingStepThreeProps> = ({
       </div>
       
       <div className="mb-8">
-        <h3 className="text-xl font-semibold mb-4">Estimated Cost</h3>
+        <h3 className="text-xl font-semibold mb-4">Quote Information</h3>
         <div className="bg-gray-50 p-4 rounded-lg">
-          <div className="flex justify-between mb-2">
-            <span>Base fare</span>
-            <span>₹120,000</span>
-          </div>
-          <div className="flex justify-between mb-2">
-            <span>Taxes & fees</span>
-            <span>₹24,000</span>
-          </div>
-          <div className="flex justify-between font-semibold text-lg pt-2 border-t">
-            <span>Total (estimate)</span>
-            <span>₹144,000</span>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">
-            *Final price may vary based on actual flight time, routing, and additional services required.
+          <p className="text-gray-700 mb-2">
+            Based on your requirements, our team will prepare a personalized quote for your {bookingType === "charter" ? "private charter" : "medical evacuation"}.
           </p>
-        </div>
-      </div>
-      
-      <div className="mb-8">
-        <h3 className="text-xl font-semibold mb-4">Payment Options</h3>
-        <div className="space-y-2">
-          <label className="flex items-center p-3 border rounded hover:bg-gray-50">
-            <input
-              type="radio"
-              name="payment"
-              value="invoice"
-              defaultChecked
-              className="mr-2"
-            />
-            <span>Request Invoice (Pay Later)</span>
-          </label>
-          <label className="flex items-center p-3 border rounded hover:bg-gray-50">
-            <input
-              type="radio"
-              name="payment"
-              value="online"
-              className="mr-2"
-            />
-            <span>Pay Online (Card/UPI/Net Banking)</span>
-          </label>
+          <p className="text-gray-700 mb-2">
+            The quote will be sent to your provided email address, and our team may contact you by phone for any additional details required.
+          </p>
+          <p className="text-gray-700">
+            Once you receive the quote, you can proceed with payment through the options that will be provided.
+          </p>
         </div>
       </div>
       
@@ -143,7 +112,7 @@ const BookingStepThree: React.FC<BookingStepThreeProps> = ({
           onClick={onSubmit}
           className="bg-kcmc-sky hover:bg-kcmc-rain text-white"
         >
-          Confirm Booking
+          Request Quote
         </Button>
       </div>
     </div>
