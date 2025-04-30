@@ -12,7 +12,6 @@ const ServicesPage = () => {
     { id: "research", label: "Cloud Physics Research" },
     { id: "charter", label: "Aviation Charter" },
     { id: "ambulance", label: "Air Ambulance" },
-    { id: "survey", label: "Aerial Survey" },
   ];
 
   const tabContent = {
@@ -63,18 +62,6 @@ const ServicesPage = () => {
         "Global coverage for medical emergencies",
       ],
       image: "https://images.unsplash.com/photo-1581595219315-a187dd06f9bd?q=80&w=1200&auto=format&fit=crop",
-    },
-    "survey": {
-      title: "Aerial Survey",
-      description: "Comprehensive aerial survey services for mapping, monitoring, and inspection purposes.",
-      features: [
-        "High-resolution imaging equipment",
-        "Thermal and infrared scanning capabilities",
-        "Environmental monitoring",
-        "Infrastructure inspection",
-        "Geographic mapping and data collection",
-      ],
-      image: "https://images.unsplash.com/photo-1574170606667-69e0d28b1c8a?q=80&w=1200&auto=format&fit=crop",
     },
   };
 
