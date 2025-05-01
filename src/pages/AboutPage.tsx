@@ -126,15 +126,6 @@ const AboutPage = () => {
                 </p>
               </div>
               
-              {/* Administrative Executive */}
-              <div className="bg-white shadow-md rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-2">Santhosh Unnikirshnan</h3>
-                <p className="text-kcmc-sky mb-2">Administrative Executive</p>
-                <p>
-                  Coordinating administrative operations and ensuring smooth organizational function across departments.
-                </p>
-              </div>
-              
               {/* Manager */}
               <div className="bg-white shadow-md rounded-lg p-6">
                 <h3 className="text-xl font-semibold mb-2">T.J. Partha Narayan</h3>
