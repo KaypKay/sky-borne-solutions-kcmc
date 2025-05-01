@@ -66,8 +66,9 @@ const AboutPage = () => {
           </div>
           
           <div className="mt-12">
-            <h2 className="text-2xl font-poppins font-semibold mb-6">Our Leadership</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <h2 className="text-2xl font-poppins font-semibold mb-6">Our Team</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Chief Mentor */}
               <div className="bg-white shadow-md rounded-lg p-6">
                 <h3 className="text-xl font-semibold mb-2">Mr. Prakash K. Koliwad</h3>
                 <p className="text-kcmc-sky mb-2">Chief Mentor</p>
@@ -77,12 +78,69 @@ const AboutPage = () => {
                   weather modification in India.
                 </p>
               </div>
+              
+              {/* Managing Director */}
               <div className="bg-white shadow-md rounded-lg p-6">
                 <h3 className="text-xl font-semibold mb-2">Krishi P. Koliwad</h3>
                 <p className="text-kcmc-sky mb-2">Managing Director</p>
                 <p>
                   Leading Kyathi Climate's operations and strategic initiatives, Krishi brings a vision 
                   for innovation and excellence in all aspects of our services.
+                </p>
+              </div>
+              
+              {/* Chief of Flight Safety */}
+              <div className="bg-white shadow-md rounded-lg p-6">
+                <h3 className="text-xl font-semibold mb-2">Capt. Vivekanand Balijepalli</h3>
+                <p className="text-kcmc-sky mb-2">Chief of Flight Safety</p>
+                <p>
+                  DGCA India certified safety expert ensuring our flight operations maintain the highest 
+                  standards of safety and regulatory compliance.
+                </p>
+              </div>
+              
+              {/* Designated Partner */}
+              <div className="bg-white shadow-md rounded-lg p-6">
+                <h3 className="text-xl font-semibold mb-2">Mr. Ramesh H Odugoudar</h3>
+                <p className="text-kcmc-sky mb-2">Designated Partner</p>
+                <p>
+                  Contributing strategic guidance and business acumen to Kyathi Climate's growth and development.
+                </p>
+              </div>
+              
+              {/* Designated Partner */}
+              <div className="bg-white shadow-md rounded-lg p-6">
+                <h3 className="text-xl font-semibold mb-2">Mr. Arun Karjol</h3>
+                <p className="text-kcmc-sky mb-2">Designated Partner</p>
+                <p>
+                  Providing valuable insights and partnership to drive Kyathi Climate's mission forward.
+                </p>
+              </div>
+              
+              {/* CFO */}
+              <div className="bg-white shadow-md rounded-lg p-6">
+                <h3 className="text-xl font-semibold mb-2">Mr. S.N. Srinivas</h3>
+                <p className="text-kcmc-sky mb-2">Chief Financial Officer</p>
+                <p>
+                  Overseeing financial strategy and management to ensure sustainable growth and operational stability.
+                </p>
+              </div>
+              
+              {/* Administrative Executive */}
+              <div className="bg-white shadow-md rounded-lg p-6">
+                <h3 className="text-xl font-semibold mb-2">Santhosh Unnikirshnan</h3>
+                <p className="text-kcmc-sky mb-2">Administrative Executive</p>
+                <p>
+                  Coordinating administrative operations and ensuring smooth organizational function across departments.
+                </p>
+              </div>
+              
+              {/* Manager */}
+              <div className="bg-white shadow-md rounded-lg p-6">
+                <h3 className="text-xl font-semibold mb-2">T.J. Partha Narayan</h3>
+                <p className="text-kcmc-sky mb-2">Manager</p>
+                <p>
+                  Managing day-to-day operations and coordinating between departments to deliver excellence in service.
                 </p>
               </div>
             </div>
