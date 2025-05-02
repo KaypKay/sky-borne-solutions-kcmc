@@ -6,6 +6,21 @@ import { format } from "date-fns";
 interface BookingStepThreeProps {
   bookingType: string;
   date?: Date;
+  origin?: string;
+  destination?: string;
+  passengers?: number;
+  aircraftType?: string;
+  tripType?: string;
+  pickupLocation?: string;
+  urgency?: string;
+  patientCondition?: string;
+  stretcherNeeded?: boolean;
+  paramedicRequired?: boolean;
+  doctorRequired?: boolean;
+  fullName: string;
+  email: string;
+  phone: string;
+  organization?: string;
   prevStep: () => void;
   onSubmit: (e: React.FormEvent) => void;
 }
@@ -13,9 +28,47 @@ interface BookingStepThreeProps {
 const BookingStepThree: React.FC<BookingStepThreeProps> = ({
   bookingType,
   date,
+  origin,
+  destination,
+  passengers,
+  aircraftType,
+  tripType,
+  pickupLocation,
+  urgency,
+  patientCondition,
+  stretcherNeeded,
+  paramedicRequired,
+  doctorRequired,
+  fullName,
+  email,
+  phone,
+  organization,
   prevStep,
   onSubmit
 }) => {
+  // Format medical requirements
+  const formatMedicalRequirements = () => {
+    if (bookingType !== 'medical') return null;
+    
+    const requirements = [];
+    if (stretcherNeeded) requirements.push('Stretcher needed');
+    if (paramedicRequired) requirements.push('Paramedic required');
+    if (doctorRequired) requirements.push('Doctor required');
+    
+    return requirements.join(', ') || 'None specified';
+  };
+
+  // Format urgency
+  const formatUrgency = (urgencyType: string) => {
+    switch (urgencyType) {
+      case 'immediate': return 'Immediate (within hours)';
+      case 'same-day': return 'Same Day';
+      case 'next-day': return 'Next Day';
+      case 'scheduled': return 'Scheduled Transfer';
+      default: return urgencyType;
+    }
+  };
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <div className="mb-8">
@@ -36,37 +89,74 @@ const BookingStepThree: React.FC<BookingStepThreeProps> = ({
               <>
                 <div>
                   <p className="text-sm text-gray-500">Origin</p>
-                  <p className="font-medium">Bangalore (Example)</p>
+                  <p className="font-medium">{origin || "Not specified"}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Destination</p>
-                  <p className="font-medium">Mumbai (Example)</p>
+                  <p className="font-medium">{destination || "Not specified"}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Passengers</p>
+                  <p className="font-medium">{passengers || 1}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Aircraft Type</p>
+                  <p className="font-medium">
+                    {aircraftType ? 
+                      (aircraftType === 'king-air' ? 'Beechcraft King Air B200' : 
+                       aircraftType === 'agusta' ? 'Agusta A109E' : aircraftType) : 
+                      "No preference"}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Trip Type</p>
+                  <p className="font-medium">
+                    {tripType === 'one-way' ? 'One Way' : 'Round Trip'}
+                  </p>
                 </div>
               </>
             ) : (
               <>
                 <div>
                   <p className="text-sm text-gray-500">Pickup Location</p>
-                  <p className="font-medium">City Hospital (Example)</p>
+                  <p className="font-medium">{pickupLocation || "Not specified"}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Destination</p>
-                  <p className="font-medium">Specialized Care Center (Example)</p>
+                  <p className="font-medium">{destination || "Not specified"}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Urgency</p>
+                  <p className="font-medium">{urgency ? formatUrgency(urgency) : "Not specified"}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Patient Condition</p>
+                  <p className="font-medium">{patientCondition ? patientCondition.charAt(0).toUpperCase() + patientCondition.slice(1) : "Not specified"}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Medical Requirements</p>
+                  <p className="font-medium">{formatMedicalRequirements()}</p>
                 </div>
               </>
             )}
             <div>
               <p className="text-sm text-gray-500">Contact Name</p>
-              <p className="font-medium">John Doe (Example)</p>
+              <p className="font-medium">{fullName}</p>
             </div>
             <div>
               <p className="text-sm text-gray-500">Contact Email</p>
-              <p className="font-medium">johndoe@example.com</p>
+              <p className="font-medium">{email}</p>
             </div>
             <div>
               <p className="text-sm text-gray-500">Phone Number</p>
-              <p className="font-medium">+1 (555) 123-4567</p>
+              <p className="font-medium">{phone}</p>
             </div>
+            {organization && (
+              <div>
+                <p className="text-sm text-gray-500">Organization</p>
+                <p className="font-medium">{organization}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

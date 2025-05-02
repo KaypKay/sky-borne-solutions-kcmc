@@ -3,7 +3,11 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const BookingStepFour: React.FC = () => {
+interface BookingStepFourProps {
+  referenceNumber: string;
+}
+
+const BookingStepFour: React.FC<BookingStepFourProps> = ({ referenceNumber }) => {
   return (
     <div className="bg-white p-8 rounded-lg shadow-md text-center">
       <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-6">
@@ -17,7 +21,7 @@ const BookingStepFour: React.FC = () => {
         shortly to confirm your reservation.
       </p>
       <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
-        <p className="font-medium">Reference Number: <span className="text-kcmc-sky">BK-12345678</span></p>
+        <p className="font-medium">Reference Number: <span className="text-kcmc-sky">{referenceNumber}</span></p>
       </div>
       <p className="mb-8 text-gray-600">
         A confirmation email has been sent to your email address with all the booking details.

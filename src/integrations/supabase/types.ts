@@ -9,7 +9,84 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          aircraft_type: string | null
+          booking_type: string
+          created_at: string
+          date: string | null
+          destination: string | null
+          doctor_required: boolean | null
+          email: string
+          full_name: string
+          id: string
+          medical_info: string | null
+          organization: string | null
+          origin: string | null
+          paramedic_required: boolean | null
+          passengers: number | null
+          patient_condition: string | null
+          phone: string
+          pickup_location: string | null
+          reference_number: string
+          special_requests: string | null
+          status: string | null
+          stretcher_needed: boolean | null
+          trip_type: string | null
+          urgency: string | null
+        }
+        Insert: {
+          aircraft_type?: string | null
+          booking_type: string
+          created_at?: string
+          date?: string | null
+          destination?: string | null
+          doctor_required?: boolean | null
+          email: string
+          full_name: string
+          id?: string
+          medical_info?: string | null
+          organization?: string | null
+          origin?: string | null
+          paramedic_required?: boolean | null
+          passengers?: number | null
+          patient_condition?: string | null
+          phone: string
+          pickup_location?: string | null
+          reference_number: string
+          special_requests?: string | null
+          status?: string | null
+          stretcher_needed?: boolean | null
+          trip_type?: string | null
+          urgency?: string | null
+        }
+        Update: {
+          aircraft_type?: string | null
+          booking_type?: string
+          created_at?: string
+          date?: string | null
+          destination?: string | null
+          doctor_required?: boolean | null
+          email?: string
+          full_name?: string
+          id?: string
+          medical_info?: string | null
+          organization?: string | null
+          origin?: string | null
+          paramedic_required?: boolean | null
+          passengers?: number | null
+          patient_condition?: string | null
+          phone?: string
+          pickup_location?: string | null
+          reference_number?: string
+          special_requests?: string | null
+          status?: string | null
+          stretcher_needed?: boolean | null
+          trip_type?: string | null
+          urgency?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
