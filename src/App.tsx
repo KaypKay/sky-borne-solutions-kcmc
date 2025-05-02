@@ -14,6 +14,8 @@ import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 import BookingPage from "./pages/BookingPage";
 import EmergencyPage from "./pages/EmergencyPage";
+import CloudSeedingQuotePage from "./pages/CloudSeedingQuotePage";
+import CloudSeedingQuoteConfirmation from "./pages/CloudSeedingQuoteConfirmation";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,8 @@ const App = () => (
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/book" element={<BookingPage />} />
           <Route path="/emergency" element={<EmergencyPage />} />
+          <Route path="/cloud-seeding-quote" element={<CloudSeedingQuotePage />} />
+          <Route path="/cloud-seeding-quote/confirmation" element={<CloudSeedingQuoteConfirmation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

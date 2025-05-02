@@ -84,7 +84,13 @@ const ServicesPage = () => {
 
   // Function to handle the request quote button click
   const handleRequestQuote = () => {
-    // Map the service tab to the appropriate booking type
+    // For cloud seeding, use the dedicated quote form
+    if (activeTab === 'cloud-seeding') {
+      navigate('/cloud-seeding-quote');
+      return;
+    }
+    
+    // For other services, use the regular booking system
     let bookingType = 'charter';
     if (activeTab === 'air-ambulance') {
       bookingType = 'medical';
