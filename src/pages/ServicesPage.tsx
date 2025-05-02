@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactBar from "@/components/ContactBar";
@@ -7,6 +8,7 @@ import ContactBar from "@/components/ContactBar";
 const ServicesPage = () => {
   const [searchParams] = useSearchParams();
   const tabFromUrl = searchParams.get("tab");
+  const navigate = useNavigate();
   
   const [activeTab, setActiveTab] = useState("cloud-seeding");
   
@@ -80,6 +82,18 @@ const ServicesPage = () => {
 
   const currentTab = tabContent[activeTab as keyof typeof tabContent];
 
+  // Function to handle the request quote button click
+  const handleRequestQuote = () => {
+    // Map the service tab to the appropriate booking type
+    let bookingType = 'charter';
+    if (activeTab === 'air-ambulance') {
+      bookingType = 'medical';
+    }
+    
+    // Navigate to the booking page with the selected service type
+    navigate(`/book?service=${activeTab}&type=${bookingType}`);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <ContactBar />
@@ -131,7 +145,10 @@ const ServicesPage = () => {
               </ul>
               
               <div className="mt-8">
-                <button className="bg-kcmc-sky hover:bg-kcmc-rain text-white py-2 px-6 rounded transition-colors">
+                <button 
+                  className="bg-kcmc-sky hover:bg-kcmc-rain text-white py-2 px-6 rounded transition-colors"
+                  onClick={handleRequestQuote}
+                >
                   Request Quote
                 </button>
               </div>

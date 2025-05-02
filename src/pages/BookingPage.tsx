@@ -1,5 +1,6 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactBar from "@/components/ContactBar";
@@ -17,9 +18,23 @@ import BookingAssistance from "@/components/booking/BookingAssistance";
 
 const BookingPage = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const serviceFromUrl = searchParams.get("service");
+  const typeFromUrl = searchParams.get("type");
+  
   const [step, setStep] = useState(1);
-  const [bookingType, setBookingType] = useState("charter");
+  const [bookingType, setBookingType] = useState(typeFromUrl || "charter");
   const [referenceNumber, setReferenceNumber] = useState("");
+  
+  // Set default values based on the service parameter
+  useEffect(() => {
+    if (typeFromUrl && (typeFromUrl === "charter" || typeFromUrl === "medical")) {
+      setBookingType(typeFromUrl);
+    }
+    
+    // You could also set other default values based on the service parameter
+    // For example, if serviceFromUrl === "cloud-seeding", you could set specific defaults
+  }, [typeFromUrl]);
   
   // Flight details (Step 1)
   const [date, setDate] = useState<Date | undefined>(undefined);

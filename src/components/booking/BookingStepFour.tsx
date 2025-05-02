@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Mail, Calendar, Clock } from "lucide-react";
 
 interface BookingStepFourProps {
   referenceNumber: string;
@@ -20,11 +21,25 @@ const BookingStepFour: React.FC<BookingStepFourProps> = ({ referenceNumber }) =>
         Thank you for your booking request. Our team will review your details and contact you 
         shortly to confirm your reservation.
       </p>
-      <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
-        <p className="font-medium">Reference Number: <span className="text-kcmc-sky">{referenceNumber}</span></p>
+      <div className="bg-gray-50 p-4 rounded-lg mb-6">
+        <p className="font-medium text-left mb-2">Reference Number: <span className="text-kcmc-sky">{referenceNumber}</span></p>
+        <div className="text-left space-y-2">
+          <div className="flex items-center text-gray-600">
+            <Mail className="mr-2 h-4 w-4" />
+            <p className="text-sm">A confirmation email has been sent to your email address.</p>
+          </div>
+          <div className="flex items-center text-gray-600">
+            <Calendar className="mr-2 h-4 w-4" />
+            <p className="text-sm">Your booking details have been saved to our system.</p>
+          </div>
+          <div className="flex items-center text-gray-600">
+            <Clock className="mr-2 h-4 w-4" />
+            <p className="text-sm">You will receive a response within 24 hours.</p>
+          </div>
+        </div>
       </div>
       <p className="mb-8 text-gray-600">
-        A confirmation email has been sent to your email address with all the booking details.
+        Please save your reference number for future inquiries about this booking.
       </p>
       <div className="space-x-4">
         <Button
