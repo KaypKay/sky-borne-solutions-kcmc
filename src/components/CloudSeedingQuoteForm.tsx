@@ -49,19 +49,21 @@ const CloudSeedingQuoteForm: React.FC = () => {
       const referenceNumber = `CS-${nanoid(8).toUpperCase()}`;
       
       // Save to Supabase
-      const { error } = await supabase.from('cloud_seeding_quotes').insert({
-        reference_number: referenceNumber,
-        full_name: values.fullName,
-        title: values.title,
-        organization: values.organization,
-        email: values.email,
-        phone: values.phone,
-        region: values.region,
-        land_size: values.landSize,
-        target_period: values.targetPeriod,
-        additional_info: values.additionalInfo,
-        status: 'pending'
-      });
+      const { error } = await supabase
+        .from('cloud_seeding_quotes')
+        .insert({
+          reference_number: referenceNumber,
+          full_name: values.fullName,
+          title: values.title,
+          organization: values.organization,
+          email: values.email,
+          phone: values.phone,
+          region: values.region,
+          land_size: values.landSize,
+          target_period: values.targetPeriod,
+          additional_info: values.additionalInfo,
+          status: 'pending'
+        });
       
       if (error) {
         console.error('Error saving quote request:', error);

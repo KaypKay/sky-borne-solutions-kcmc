@@ -87,6 +87,54 @@ export type Database = {
         }
         Relationships: []
       }
+      cloud_seeding_quotes: {
+        Row: {
+          additional_info: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          land_size: string
+          organization: string
+          phone: string
+          reference_number: string
+          region: string
+          status: string | null
+          target_period: string
+          title: string
+        }
+        Insert: {
+          additional_info?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          land_size: string
+          organization: string
+          phone: string
+          reference_number: string
+          region: string
+          status?: string | null
+          target_period: string
+          title: string
+        }
+        Update: {
+          additional_info?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          land_size?: string
+          organization?: string
+          phone?: string
+          reference_number?: string
+          region?: string
+          status?: string | null
+          target_period?: string
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
