@@ -6,53 +6,6 @@ import ContactBar from "@/components/ContactBar";
 import { Link } from "react-router-dom";
 
 const BlogPage = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Science Behind Cloud Seeding: How It Works",
-      excerpt:
-        "Cloud seeding is a weather modification technique that aims to change the amount or type of precipitation by introducing substances into the air that serve as cloud condensation or ice nuclei.",
-      category: "Atmospheric Science",
-      date: "April 15, 2025",
-      author: "Dr. Rajeev Kumar",
-      authorRole: "Lead Atmospheric Scientist",
-      image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=1200&auto=format&fit=crop",
-    },
-    {
-      id: 2,
-      title: "Case Study: Karnataka's Monsoon Enhancement Project",
-      excerpt:
-        "An in-depth look at our successful cloud seeding operations during the 2019-2020 monsoon season in Karnataka, achieving a 30% increase in rainfall across target regions.",
-      category: "Case Studies",
-      date: "March 22, 2025",
-      author: "Krishi P. Koliwad",
-      authorRole: "Managing Director",
-      image: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1200&auto=format&fit=crop",
-    },
-    {
-      id: 3,
-      title: "Air Ambulance Services: When Minutes Matter",
-      excerpt:
-        "Exploring how our air ambulance services provide critical care transportation in emergency situations, reducing transfer times and improving patient outcomes.",
-      category: "Aviation Ops",
-      date: "February 10, 2025",
-      author: "Dr. Sunita Patel",
-      authorRole: "Medical Director",
-      image: "https://images.unsplash.com/photo-1581595219315-a187dd06f9bd?q=80&w=1200&auto=format&fit=crop",
-    },
-    {
-      id: 4,
-      title: "Advanced Technologies in Weather Modification",
-      excerpt:
-        "A look at the cutting-edge technologies being employed in modern weather modification operations, including new seeding agents and distribution methods.",
-      category: "Atmospheric Science",
-      date: "January 28, 2025",
-      author: "Dr. Rajeev Kumar",
-      authorRole: "Lead Atmospheric Scientist",
-      image: "https://images.unsplash.com/photo-1558486012-817176f84c6d?q=80&w=1200&auto=format&fit=crop",
-    },
-  ];
-
   const categories = [
     "All",
     "Atmospheric Science",
@@ -106,53 +59,22 @@ const BlogPage = () => {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <span className="text-xs font-medium text-kcmc-sky">
-                    {post.category}
-                  </span>
-                  <h2 className="text-xl font-semibold mt-1 mb-2">
-                    <Link to={`/blog/${post.id}`} className="hover:text-kcmc-sky transition-colors">
-                      {post.title}
-                    </Link>
-                  </h2>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-kcmc-sky/20 rounded-full flex items-center justify-center text-kcmc-sky font-medium">
-                        {post.author.split(' ').map(n => n[0]).join('')}
-                      </div>
-                      <div className="ml-2">
-                        <p className="text-xs font-medium">{post.author}</p>
-                        <p className="text-xs text-gray-500">{post.date}</p>
-                      </div>
-                    </div>
-                    <Link
-                      to={`/blog/${post.id}`}
-                      className="text-kcmc-sky text-sm font-medium hover:underline"
-                    >
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="min-h-[400px] flex flex-col items-center justify-center text-center p-8">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1M19 20a2 2 0 002-2V8a2 2 0 00-2-2h-1M8 7h1m0 0h1m-1 0v1m0-1V6m5 4h2a2 2 0 012 2v4a2 2 0 01-2 2h-5a2 2 0 01-2-2v-3a2 2 0 012-2h1" />
+            </svg>
+            <h2 className="text-2xl font-semibold text-gray-700 mb-2">No Blog Posts Available</h2>
+            <p className="text-gray-500 max-w-md mb-6">
+              We're currently working on our first articles. Check back soon for insights on cloud seeding, aviation, and more!
+            </p>
+            <Link
+              to="/contact"
+              className="text-kcmc-sky font-medium hover:underline"
+            >
+              Contact us for more information
+            </Link>
           </div>
           
-          <div className="mt-12 flex justify-center">
-            <button className="bg-white border border-kcmc-sky text-kcmc-sky hover:bg-kcmc-sky/10 py-2 px-6 rounded transition-colors">
-              Load More Articles
-            </button>
-          </div>
         </div>
       </main>
       <Footer />
